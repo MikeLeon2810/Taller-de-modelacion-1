@@ -1,0 +1,39 @@
+Integrantes del equipo: 
+José Miguel Domínguez León 
+Góngora Ramírez Arturo
+Sánchez Ramírez Diego Alberto
+
+
+Observaciones y/o conclusiones de la practica: 
+
+Ejercicio 1: 
+Acá se observa claramente el desarrollo completo de una epidemia. En la tabla, durante los primeros tiempos (n = 0 hasta aproximadamente n = 24), el número de infectados crece de manera acelerada: pasa de 127 a más de 100,000. 
+Este crecimiento no solo es continuo, sino que los incrementos entre un tiempo y otro son cada vez mayores al inicio, lo cual se refleja también en la gráfica con una curva naranja que sube de forma pronunciada.
+En ese mismo intervalo, los susceptibles disminuyen rápidamente desde 1,000,000 hasta poco más de 550,000, mientras que los removidos comienzan a aumentar de forma cada vez más rápida.
+
+El punto más importante que se observa en la tabla es que el número máximo de infectados ocurre en el tiempo n = 24, donde I(n) ≈ 103,899.95. A partir de n = 25, los infectados empiezan a disminuir (99,178.71 en n = 25, luego 88,958.18 en n = 26, etc.). En la gráfica esto corresponde exactamente al pico de la curva de infectados. Ese momento marca el punto de máxima intensidad de la epidemia.
+
+Después del pico, la tabla muestra una disminución constante y progresiva de los infectados. Para n ≈ 40 ya han bajado a poco más de 1,000; para n ≈ 50 son apenas alrededor de 30; y a partir de n ≈ 60 el número es menor que 1. Desde n ≈ 75 en adelante, la tabla muestra I(n) = 0.00 (redondeado a dos decimales). Es decir, en términos prácticos, la infección desaparece completamente alrededor de ese tiempo. En la gráfica, esto se ve como la curva naranja pegándose al eje horizontal.
+
+Al mismo tiempo, los susceptibles dejan de disminuir alrededor de n ≈ 60–70 y se estabilizan aproximadamente en 296,621.34. Esto significa que no toda la población se infectó; alrededor del 29.6% permaneció susceptible al final. Por otro lado, los removidos se estabilizan cerca de 703,505.66, lo que indica que aproximadamente el 70% de la población total pasó por la infección y terminó recuperándose (o removiéndose).
+
+En los últimos tiempos de la tabla (desde n ≈ 75 hasta n = 149), se observa que los valores prácticamente ya no cambian: S(n) permanece constante, I(n) es 0.00 y R(n) también se mantiene fijo. Esto indica que el sistema ha alcanzado un estado estacionario, donde la epidemia ha terminado y ya no hay dinámica activa.
+
+En conclusión, lo que se observa directamente en la tabla y la gráfica es: un crecimiento inicial rápido de infectados, un pico claro en n = 24, una disminución progresiva hasta desaparecer prácticamente en n ≈ 75, y finalmente una estabilización del sistema donde aproximadamente el 70% de la población resultó infectada y el 30% nunca se contagió. Es una representación completa del ciclo epidémico dentro del modelo SIR.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Ejercicio 2:
+En el Caso 1, la gráfica muestra que el número de infectados inicia en 200,000 y disminuye casi desde el comienzo. No hay un crecimiento visible; la curva azul cae de manera muy pronunciada durante los primeros tiempos y en menos de 10 unidades de tiempo los infectados son prácticamente cero. Al mismo tiempo, los susceptibles disminuyen rápidamente al inicio y luego se estabilizan alrededor de 20,000. Los removidos crecen de forma muy rápida y se estabilizan cerca de 280,000. Visualmente se observa que la epidemia es muy intensa al principio, pero extremadamente corta: en pocos pasos prácticamente desaparece. Esto ocurre porque la población inicial ya tenía una gran cantidad de infectados, por lo que el proceso de recuperación domina rápidamente.
+
+En el Caso 2, el comportamiento es muy similar, pero ligeramente más intenso en la fase inicial. Los infectados comienzan en 100,000 y también decrecen de forma rápida y continua hasta desaparecer aproximadamente alrededor de n = 10. La diferencia con el Caso 1 es que la caída inicial es aún más marcada y el número final de susceptibles es mayor (cerca de 50,000), mientras que los removidos se estabilizan cerca de 250,000. En la gráfica se aprecia nuevamente que la dinámica es muy rápida: todo el proceso epidémico ocurre en un intervalo corto de tiempo. No se observa un crecimiento pronunciado porque ya se parte de una cantidad grande de infectados y el sistema se ajusta rápidamente hacia el equilibrio.
+
+El Caso 3 presenta un comportamiento completamente distinto. Aquí los infectados comienzan con solo 10 individuos, y al inicio la curva azul crece lentamente. Después de aproximadamente n = 30–35 se observa un crecimiento mucho más acelerado, formando una curva en forma de campana clara. El pico ocurre alrededor de n ≈ 45–50, donde los infectados alcanzan su valor máximo. Posteriormente la curva comienza a descender hasta acercarse a cero alrededor de n ≈ 80–90. A diferencia de los Casos 1 y 2, aquí sí se aprecia claramente la fase de crecimiento, el pico epidémico y la fase de disminución. Los susceptibles disminuyen de manera progresiva desde 1,000,000 hasta estabilizarse cerca de 400,000, mientras que los removidos aumentan de manera sigmoide hasta estabilizarse cerca de 600,000. La dinámica completa es más lenta y más visible.
+
+En conclusión, lo que se observa en las gráficas es que los Casos 1 y 2 presentan epidemias muy rápidas que prácticamente se extinguen en pocos pasos debido a que inician con una cantidad grande de infectados. En cambio, el Caso 3 muestra el desarrollo clásico de una epidemia: inicio lento, crecimiento acelerado, pico bien definido y posterior desaparición. Además, en los tres casos se observa que después de cierto tiempo las tres curvas se estabilizan, lo que indica que el sistema alcanza un estado estacionario donde ya no hay infectados y las poblaciones dejan de cambiar.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Ejercicio 3: 
+Obtenemos $R_0$ como $R_0 = \frac{\alpha S_0}{N\beta}$, pero ya habíamos visto que $\frac{\alpha S_0}{N}$, es el promedio de personas que se infectan, entonces como $\beta$ es la tasa de recuperación promedio, $R_0$ es como la cantidad de personas sanas que un infectado puede contagiar al inicio de la epidemia.
+
+Del ejercicio 2, en los casos 1 y 3, $R_0 > 1$, lo cual significa que cada persona infectada contagia a más de una persona. La epidemia crece y habrá un brote de infectados. Mientras mayor sea el $R_0$ (como en el caso 3), más rápido y explosivo será el brote. Si $R_0 = 1$ como en el caso 2, cada persona infectada contagia exactamente a una persona. Así, la enfermedad se mantiene estable momentáneamente, pero como el número de susceptibles ($S$) irá bajando, la epidemia no generará un brote explosivo y comenzará a decaer suavemente.
+
+Esto cobra más sentido analizando el cambio en la población de infectados; $$I_{n+1} = I_n + \frac{\alpha S_n I_n}{N} - \beta I_n$$, factorizando $\beta$ e $I_n$ y restando obtenemos la diferencia $$I_{n+1} - I_n = I_n \beta \left( \frac{\alpha S_n}{\beta N} - 1 \right)$$ cuyo signo depende de $\frac{\alpha S_n}{\beta N} = R_0$, así si $R_0 > 1$ la pendiente es positiva, es decir, surgen brotes más acelerados dependiendo de qué tan grande sea $R_0$; si $R_0 = 1$ la pendiente será nula, por lo que no se genera un brote como en el caso 2.

@@ -1,0 +1,72 @@
+#El juego del caos consiste simplemente en ir dibujando puntos de forma aleatoria, de tal
+#forma que dicha sucesión de puntos en el límite nos va a dar un fractal conocido.
+#Consideremos un triángulo con vértices A,B,C (Comúnmente es utilizado en triángulo
+#equilátero) y ejecutemos el siguiente algoritmo:
+#1. Elige un punto x0 en el plano.
+#2. Elige aleatoriamente uno de vértices A,B,C.
+#3. El punto siguiente xi+1 será el punto medio entre el punto xi
+#y el vértice elegido.
+
+#4. Volver al paso 2.
+#Programa una función que realice el algoritmo anterior y ejucatalo 10000 veces.
+
+#Miembros del equipo:
+#José Miguel Domínguez León
+# Saúl René Bautista Balderrama
+#Paulina Alba Pérez
+# Leonardo Manuel Infante Flores
+#Programa:
+import random
+import matplotlib.pyplot as plt
+
+# Vértices del triángulo equilátero
+A = (0, 0)
+B = (1, 0)
+C = (0.5, 0.866)  # altura de triángulo equilátero
+
+vertices = [A, B, C]
+
+# Punto inicial aleatorio dentro del triángulo (aproximado)
+x, y = random.random(), random.random()
+
+# Listas para guardar puntos
+xs = []
+ys = []
+
+# Número de iteraciones
+N = 10000
+
+for _ in range(N):
+    # Elegir vértice al azar
+    vx, vy = random.choice(vertices)
+
+    # Punto medio
+    x = (x + vx) / 2
+    y = (y + vy) / 2
+
+    xs.append(x)
+    ys.append(y)
+
+# Dibujar el fractal
+plt.figure(figsize=(6,6))
+plt.scatter(xs, ys, s=0.5, color="black")
+# Dibujar vértices en rojo
+vx = [A[0], B[0], C[0]]
+vy = [A[1], B[1], C[1]]
+plt.scatter(vx, vy, color="red", s=50)
+# Etiquetas desplazadas
+
+plt.annotate("A", xy=A, xytext=(-12, -12),
+             textcoords="offset points", color="red")
+
+plt.annotate("B", xy=B, xytext=(12, -12),
+             textcoords="offset points", color="red")
+
+plt.annotate("C", xy=C, xytext=(0, 12),
+             textcoords="offset points", color="red")
+
+
+plt.title("Juego del caos → Triángulo de Sierpinski")
+plt.axis("equal") #Hace que 1 unidad en x sea del mismo tamaño que 1 unidad en y.Nos grarantiza que sea un triángulo equilatero
+plt.axis("off") #Oculta la cuadricula y/o los ejes
+plt.show()
